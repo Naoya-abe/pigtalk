@@ -1,5 +1,21 @@
-.App {
-  text-align: center;
+.App{
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+@media screen and (max-width:520px) { 
+  /*　画面サイズが520pxからはここを読み込む　*/
+  .App{
+    margin: 0 20px;
+  }
+}
+
+.App ul {
+  margin: 10px auto;
+}
+
+.App ul li {
+  padding-left: 0;
 }
 
 .App-logo {
