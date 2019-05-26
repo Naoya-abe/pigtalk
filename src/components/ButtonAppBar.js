@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 function ButtonAppBar() {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -33,7 +34,7 @@ function ButtonAppBar() {
             aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h4" className={classes.title}>
             PigTalk
           </Typography>
           <Button color="inherit">Login</Button>
