@@ -6,8 +6,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './reducers';
+import {onSubmitClick} from './actions';
 
 const store = createStore(reducer);
+
+// console.log(store.getState());
+// store.dispatch(onSubmitClick('たちつてと'));
+// console.log(store.getState());
+// store.dispatch(onSubmitClick('さしすせそ'));
+// console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

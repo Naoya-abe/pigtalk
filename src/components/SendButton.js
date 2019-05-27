@@ -20,11 +20,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function SendButtons() {
+function SendButtons({onClick}) {
   const classes = useStyles();
 
   return (
-    <Button variant="contained" color="primary" className={classes.button}>
+    <Button
+      onClick={onClick}
+      variant="contained"
+      color="primary"
+      className={classes.button}>
       {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
       <Icon>send</Icon>
     </Button>
