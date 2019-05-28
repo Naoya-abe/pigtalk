@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,57 +12,63 @@ import {connect} from 'react-redux';
 
 import * as actions from '../actions';
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-  },
-  dense: {
-    marginTop: 19,
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   container: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   textField: {
+//     marginLeft: theme.spacing(1),
+//     marginRight: theme.spacing(1),
+//   },
+//   dense: {
+//     marginTop: 19,
+//   },
+// }));
 
-function TextInput(props) {
-  const classes = useStyles();
-  console.log(props);
+class TextInput extends Component {
+  render() {
+    // const classes = useStyles();
+    const {actions} = this.props;
+    // console.log(props);
 
-  //React Hooks
-  const [values, setValue] = React.useState({
-    text: '',
-  });
+    //React Hooks
+    // const [values, setValue] = React.useState({
+    //   text: '',
+    // });
 
-  console.log(values);
+    // const handleChange = text => event => {
+    //   setValue({[text]: event.target.value});
+    // };
 
-  const handleChange = text => event => {
-    setValue({[text]: event.target.value});
-  };
+    // const pushMessages = (props, values) => {
+    //   messagesRef.push({
+    //     image: props.img,
+    //     text: values.text,
+    //   });
+    // };
 
-  console.log(values.text);
-
-  return (
-    <React.Fragment>
-      <form className="wrap" noValidate autoComplete="off">
-        <TextField
-          id="standard-text"
-          label="メッセージを入力"
-          className="text"
-          margin="normal"
-          onChange={handleChange('text')}
-          value={values.text}
-        />
-        <SendButtons
-          onClick={() => {
-            props.actions.onSubmitClick(values.text);
-            setValue({text: ''});
-          }}
-        />
-      </form>
-    </React.Fragment>
-  );
+    return (
+      <React.Fragment>
+        <form className="wrap" noValidate autoComplete="off">
+          <TextField
+            id="standard-text"
+            label="メッセージを入力"
+            className="text"
+            margin="normal"
+            onChange={e => actions.handleChange(e.target.value)}
+            value={this.props.value}
+          />
+          <SendButtons
+            onClick={() => {
+              // pushMessages(props, values);
+              actions.onSubmitClick(this.props.value);
+            }}
+          />
+        </form>
+      </React.Fragment>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => {

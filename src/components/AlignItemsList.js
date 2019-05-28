@@ -19,14 +19,14 @@ const useStyles = makeStyles(theme => ({
 
 function AlignItemsList(props) {
   const classes = useStyles();
-
+  console.log(props);
   return (
     <List className={classes.root}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src={props.img} />
+          <Avatar alt="Remy Sharp" src={props.message.image} />
         </ListItemAvatar>
-        <ListItemText primary={props.text} />
+        <ListItemText primary={props.message.text} />
       </ListItem>
       <Divider variant="inset" component="li" />
     </List>

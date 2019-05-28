@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
 import submit from './submit';
-import {reducer as reduxFormReducer} from 'redux-form';
+// import handleChange from './handleChange';
 
-const reducer = combineReducers({submit}, {form: reduxFormReducer});
+// const reducer = combineReducers({submit, handleChange});
+const reducer = combineReducers({submit});
 
 export default reducer;

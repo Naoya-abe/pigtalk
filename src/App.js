@@ -10,17 +10,27 @@ import TextInput from './components/TextInput.js';
 import AlignItemsList from './components/AlignItemsList';
 import {dispatch} from 'rxjs/internal/observable/range';
 
+import {firebaseDb} from './firebase';
+const messagesRef = firebaseDb.ref('messages');
+
 class App extends Component {
   render() {
     const {submit} = this.props;
+
     console.log(this.props);
 
     return (
       <React.Fragment>
         <ButtonAppBar />
         <div className="App">
-          <AlignItemsList img={submit.image} text={submit.text} />
-          <TextInput text={submit.text} />
+          {submit.messages.map((m, i) => (
+            <AlignItemsList key={i} message={m} />
+          ))}
+          <TextInput
+            value={submit.value}
+            // onChange={() => actions.handleChange()}
+            // onClick={() => actions.onSubmitClick()}
+          />
           {/* <SendButtons onClick={() => actions.onSubmitClick('さしすせそ')} /> */}
         </div>
       </React.Fragment>
