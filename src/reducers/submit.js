@@ -13,8 +13,6 @@ const initialAppState = {
 const messagesRef = firebaseDb.ref('messages');
 
 const submit = (state = initialAppState, action) => {
-  let msgs = state.messages;
-
   switch (action.type) {
     case actions.SUBMIT:
       if (action.text == '') {
@@ -27,15 +25,6 @@ const submit = (state = initialAppState, action) => {
         text: action.text,
       });
 
-      messagesRef.on('child_added', snapshot => {
-        const m = snapshot.val();
-
-        msgs.push({
-          image: m.image,
-          text: m.text,
-        });
-      });
-
       if (state.imageChange === false) {
         return {
           value: '',
@@ -43,7 +32,7 @@ const submit = (state = initialAppState, action) => {
           imageChange: true,
           image:
             'https://hellogiggles.com/wp-content/uploads/2015/03/11/micro-pig-LondonPignic.jpg',
-          messages: msgs,
+          messages: state.messages,
         };
       } else {
         return {
@@ -52,7 +41,7 @@ const submit = (state = initialAppState, action) => {
           imageChange: false,
           image:
             'https://secretldn.com/wp-content/uploads/2017/07/micropig-feature2.jpg',
-          messages: msgs,
+          messages: state.messages,
         };
       }
     case actions.CHANGE:

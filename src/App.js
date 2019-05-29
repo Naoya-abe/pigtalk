@@ -14,10 +14,27 @@ import {firebaseDb} from './firebase';
 const messagesRef = firebaseDb.ref('messages');
 
 class App extends Component {
+  componentWillMount() {
+    messagesRef.on('child_added', snapshot => {
+      console.log(this.props);
+      const m = snapshot.val();
+      const {submit} = this.props;
+
+      let msgs = submit.messages;
+
+      msgs.push({
+        image: m.image,
+        text: m.text,
+      });
+
+      this.setState({
+        messages: msgs,
+      });
+    });
+  }
+
   render() {
     const {submit} = this.props;
-
-    console.log(this.props);
 
     return (
       <React.Fragment>
