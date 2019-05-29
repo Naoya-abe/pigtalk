@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
+
 import {connect} from 'react-redux';
 
-import * as actions from './actions';
-import ButtonAppBar from './components/ButtonAppBar.js';
-// import SendButtons from './components/SendButton';
-import './styles/App.css';
-import TextInput from './components/TextInput.js';
 import AlignItemsList from './components/AlignItemsList';
-import {dispatch} from 'rxjs/internal/observable/range';
+import ButtonAppBar from './components/ButtonAppBar.js';
+import TextInput from './components/TextInput.js';
 
 import {firebaseDb} from './firebase';
+
+import './styles/App.css';
+
 const messagesRef = firebaseDb.ref('messages');
 
 class App extends Component {

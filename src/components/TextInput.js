@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-import clsx from 'clsx';
-import {makeStyles} from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import TextField from '@material-ui/core/TextField';
 import '../styles/ChatBox.css';
-
 import SendButtons from './SendButton';
 
 import {bindActionCreators} from 'redux';

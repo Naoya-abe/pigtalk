@@ -15,7 +15,7 @@ const messagesRef = firebaseDb.ref('messages');
 const submit = (state = initialAppState, action) => {
   switch (action.type) {
     case actions.SUBMIT:
-      if (action.text == '') {
+      if (action.text === '') {
         alert('メッセージを入力してください');
         return state;
       }
