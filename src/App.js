@@ -43,12 +43,7 @@ class App extends Component {
           {submit.messages.map((m, i) => (
             <AlignItemsList key={i} message={m} />
           ))}
-          <TextInput
-            value={submit.value}
-            // onChange={() => actions.handleChange()}
-            // onClick={() => actions.onSubmitClick()}
-          />
-          {/* <SendButtons onClick={() => actions.onSubmitClick('さしすせそ')} /> */}
+          <TextInput value={submit.value} />
         </div>
       </React.Fragment>
     );
@@ -58,16 +53,5 @@ class App extends Component {
 const mapStateToProps = state => ({
   submit: state.submit,
 });
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     actions: bindActionCreators(actions, dispatch),
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(App);
 
 export default connect(mapStateToProps)(App);

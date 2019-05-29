@@ -61,7 +61,6 @@ class TextInput extends Component {
           />
           <SendButtons
             onClick={() => {
-              // pushMessages(props, values);
               actions.onSubmitClick(this.props.value);
             }}
           />

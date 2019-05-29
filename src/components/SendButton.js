@@ -29,7 +29,6 @@ function SendButtons({onClick}) {
       variant="contained"
       color="primary"
       className={classes.button}>
-      {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
       <Icon>send</Icon>
     </Button>
   );
