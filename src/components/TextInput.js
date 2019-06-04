@@ -7,11 +7,12 @@ import SendButtons from './SendButton';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import * as actions from '../actions';
+import actions from '../actions';
 
 class TextInput extends Component {
   render() {
     const {actions} = this.props;
+    console.log(this.props);
 
     return (
       <React.Fragment>
@@ -21,12 +22,12 @@ class TextInput extends Component {
             label="メッセージを入力"
             className="text"
             margin="normal"
-            onChange={e => actions.handleChange(e.target.value)}
+            onChange={e => actions.change(e.target.value)}
             value={this.props.value}
           />
           <SendButtons
             onClick={() => {
-              actions.onSubmitClick(this.props.value);
+              actions.submit(this.props.value);
             }}
           />
         </form>

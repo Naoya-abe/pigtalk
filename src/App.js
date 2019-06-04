@@ -15,9 +15,9 @@ const messagesRef = firebaseDb.ref('messages');
 class App extends Component {
   componentWillMount() {
     messagesRef.on('child_added', snapshot => {
-      console.log(this.props);
       const m = snapshot.val();
       const {submit} = this.props;
+      console.log(submit);
 
       let msgs = submit.messages;
 
