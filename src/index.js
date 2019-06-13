@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import './index.css';
-import App from './App';
+import {TopMainPage} from './pages';
 import * as serviceWorker from './serviceWorker';
-import reducer from './reducers';
+import {configureStore} from './redux';
 
-const store = createStore(reducer);
+import './index.css';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
+  <Provider store={configureStore()}>
+    <TopMainPage />
   </Provider>,
   document.getElementById('root')
 );

@@ -1,56 +1,56 @@
-import React, {Component} from 'react';
+// import React, {Component} from 'react';
 
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 
-import AlignItemsList from './components/AlignItemsList';
-import ButtonAppBar from './components/ButtonAppBar.js';
-import TextInput from './components/TextInput.js';
+// import AlignItemsList from './components/AlignItemsList';
+// import ButtonAppBar from './components/ButtonAppBar.js';
+// import TextInput from './components/TextInput.js';
 
-import {firebaseDb} from './firebase';
+// import {firebaseDb} from './firebase';
 
-import './styles/App.css';
+// import './styles/App.css';
 
-const messagesRef = firebaseDb.ref('messages');
+// const messagesRef = firebaseDb.ref('messages');
 
-class App extends Component {
-  componentWillMount() {
-    messagesRef.on('child_added', snapshot => {
-      const m = snapshot.val();
-      const {submit} = this.props;
-      console.log(submit);
+// class App extends Component {
+//   componentWillMount() {
+//     messagesRef.on('child_added', snapshot => {
+//       const m = snapshot.val();
+//       const {submit} = this.props;
+//       console.log(submit);
 
-      let msgs = submit.messages;
+//       let msgs = submit.messages;
 
-      msgs.push({
-        image: m.image,
-        text: m.text,
-      });
+//       msgs.push({
+//         image: m.image,
+//         text: m.text,
+//       });
 
-      this.setState({
-        messages: msgs,
-      });
-    });
-  }
+//       this.setState({
+//         messages: msgs,
+//       });
+//     });
+//   }
 
-  render() {
-    const {submit} = this.props;
+//   render() {
+//     const {submit} = this.props;
 
-    return (
-      <React.Fragment>
-        <ButtonAppBar />
-        <div className="App">
-          {submit.messages.map((m, i) => (
-            <AlignItemsList key={i} message={m} />
-          ))}
-          <TextInput value={submit.value} />
-        </div>
-      </React.Fragment>
-    );
-  }
-}
+//     return (
+//       <React.Fragment>
+//         <ButtonAppBar />
+//         <div className="App">
+//           {submit.messages.map((m, i) => (
+//             <AlignItemsList key={i} message={m} />
+//           ))}
+//           <TextInput value={submit.value} />
+//         </div>
+//       </React.Fragment>
+//     );
+//   }
+// }
 
-const mapStateToProps = state => ({
-  submit: state.submit,
-});
+// const mapStateToProps = state => ({
+//   submit: state.submit,
+// });
 
-export default connect(mapStateToProps)(App);
+// export default connect(mapStateToProps)(App);

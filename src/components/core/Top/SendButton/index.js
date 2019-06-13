@@ -16,12 +16,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function SendButtons({onClick}) {
+function SendButton(props) {
   const classes = useStyles();
-
   return (
     <Button
-      onClick={onClick}
+      onClick={() => props.onClick(props.value, props.image)}
       variant="contained"
       color="primary"
       className={classes.button}>
@@ -30,4 +29,4 @@ function SendButtons({onClick}) {
   );
 }
 
-export default SendButtons;
+export default SendButton;
